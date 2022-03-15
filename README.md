@@ -5,3 +5,6 @@
 
 ### Демонстрация игры "Проверка на чётность"
 [![asciicast](https://asciinema.org/a/agph8ej0kQxeuPkO5XmFrgtaG.svg)](https://asciinema.org/a/agph8ej0kQxeuPkO5XmFrgtaG)
+
+### Демонстрация игры "Калькулятор"
+[![asciicast](https://asciinema.org/a/Tqc2MoRwjoxusD2xmVx5AftCd.svg)](https://asciinema.org/a/Tqc2MoRwjoxusD2xmVx5AftCd)

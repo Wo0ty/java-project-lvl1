@@ -1,41 +1,37 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
+import hexlet.code.Engine;
 
 public class Even {
-    private static final int NUMBER_OF_ROUNDS = 3;
-    private static final int MAX_RANDOM_VALUE = 15;
+
+    static final String DESCRIPTION = "Answer 'yes' if number even otherwise answer 'no'.";
+    public static final String NAME = "Even";
 
     public static void startGame() {
-        String playerName = hexlet.code.Cli.askName();
-        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_NUMBER][];
 
-        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
-            int number = getRandomNumber(0, MAX_RANDOM_VALUE);
-            System.out.println("Question: " + number);
-
-            String correctAnswer = getCorrectAnswer(number);
-            System.out.print("Your answer: ");
-
-            Scanner input = new Scanner(System.in);
-            String answer = input.next();
-            if (answer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(.  Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + playerName + "!");
-                return;
-            }
+        for (int i = 0; i < questionsAndAnswers.length; i++) {
+            questionsAndAnswers[i] = getQuestionAndAnswer();
         }
 
-        System.out.println("Congratulations, " + playerName + "!");
+        Engine.start(questionsAndAnswers, DESCRIPTION);
     }
 
-    private static int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
+    private static String[] getQuestionAndAnswer() {
+        final int maxRandomValue = 15;
+        int number = getRandomNumber(0, maxRandomValue);
+
+        String question = Integer.toString(number);
+        String answer = getCorrectAnswer(number);
+
+        return new String[] {question, answer};
     }
 
     private static String getCorrectAnswer(int number) {
         return (number % 2 == 0) ? "yes" : "no";
+    }
+
+    private static int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
     }
 }
