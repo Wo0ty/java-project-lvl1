@@ -6,11 +6,13 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        String[] gameNames = {"Exit", "Even", "Greet"};
+        String[] gameNames = {"Exit","Greet", "Even"};
+        int countGames = gameNames.length;
 
-        for (int i = gameNames.length - 1; i >= 0; i--) {
+        for (int i = 1; i < countGames; i++) {
             System.out.println(i + " - " + gameNames[i]);
         }
+        System.out.println("0 - " + gameNames[0]);
 
         Scanner input = new Scanner(System.in);
         System.out.print("Your choice: ");
