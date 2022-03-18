@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Pair;
 
 public class Calc {
 
@@ -8,22 +9,22 @@ public class Calc {
     public static final String NAME = "Calc";
 
     public static void startGame() {
-        String[][] questionsAndAnswers = new String[Engine.ROUNDS_NUMBER][];
+        Pair[] task = new Pair[Engine.getRoundsNumber()];
 
-        for (int i = 0; i < questionsAndAnswers.length; i++) {
-            questionsAndAnswers[i] = getQuestionAndAnswer();
+        for (int i = 0; i < task.length; i++) {
+            task[i] = getQuestionAndAnswer();
         }
 
-        Engine.start(questionsAndAnswers, DESCRIPTION);
+        Engine.start(task, DESCRIPTION);
     }
 
-    private static String[] getQuestionAndAnswer() {
+    private static Pair getQuestionAndAnswer() {
         final int maxRandomValue = 15;
         char[] operations = {'+', '-', '*'};
 
-        int num1 = getRandomNumber(0, maxRandomValue);
-        int num2 = getRandomNumber(0, maxRandomValue);
-        char operation = operations[getRandomNumber(0, operations.length)];
+        int num1 = Engine.getRandomNumber(0, maxRandomValue);
+        int num2 = Engine.getRandomNumber(0, maxRandomValue);
+        char operation = operations[Engine.getRandomNumber(0, operations.length)];
 
         String question = num1 + " " + operation + " " + num2;
         String answer = switch (operation) {
@@ -33,11 +34,7 @@ public class Calc {
             default -> "0";
         };
 
-        return new String[] {question, answer};
-    }
-
-    private static int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
+        return new Pair(question, answer);
     }
 }
 

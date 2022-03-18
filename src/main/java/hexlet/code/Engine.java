@@ -3,17 +3,17 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static final int ROUNDS_NUMBER = 3;
+    private static final int ROUNDS_NUMBER = 3;
 
-    public static void start(String[][] questionsAndAnswers, String gameDescription) {
+    public static void start(Pair[] task, String gameDescription) {
         String playerName = Cli.askName();
         System.out.println(gameDescription);
 
         Scanner input = new Scanner(System.in);
 
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
-            String question = questionsAndAnswers[i][0];
-            String correctAnswer = questionsAndAnswers[i][1];
+            String question = task[i].getQuestion();
+            String correctAnswer = task[i].getQuestion();
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
@@ -28,5 +28,13 @@ public class Engine {
             }
         }
         System.out.println("Congratulations, " + playerName + "!");
+    }
+
+    public static int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
+
+    public static int getRoundsNumber() {
+        return ROUNDS_NUMBER;
     }
 }
