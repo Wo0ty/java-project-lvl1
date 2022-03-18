@@ -9,31 +9,32 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calculator");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("0 - Exit");
+        String[] gameNames = {"Exit", "Greeting", "Even", "calculator", "GCD", "Progression"};
+        int countGames = gameNames.length;
+
+        for (int i = 1; i < countGames; i++) {
+            System.out.println(i + " - " + gameNames[i]);
+        }
+        System.out.println("0 - " + gameNames[0]);
 
         Scanner input = new Scanner(System.in);
         System.out.print("Your choice: ");
         int selectedGame = input.nextInt();
 
-        switch (selectedGame) {
-            case 1:
+        switch (gameNames[selectedGame]) {
+            case "Greeting":
                 Cli.askName();
                 break;
-            case 2:
+            case "Even":
                 Even.startGame();
                 break;
-            case 3:
+            case Calc.NAME:
                 Calc.startGame();
                 break;
-            case 4:
+            case Gcd.NAME:
                 Gcd.startGame();
                 break;
-            case 5:
+            case Progression.NAME:
                 Progression.startGame();
                 break;
             default:

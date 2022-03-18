@@ -4,9 +4,8 @@ import hexlet.code.Engine;
 import hexlet.code.Pair;
 
 public class Calc {
-
-    static final String DESCRIPTION = "What is the result of the expression?";
     public static final String NAME = "Calc";
+    static final String DESCRIPTION = "What is the result of the expression?";
 
     public static void startGame() {
         Pair[] task = new Pair[Engine.getRoundsNumber()];
@@ -19,11 +18,10 @@ public class Calc {
     }
 
     private static Pair getQuestionAndAnswer() {
-        final int maxRandomValue = 15;
         char[] operations = {'+', '-', '*'};
 
-        int num1 = Engine.getRandomNumber(0, maxRandomValue);
-        int num2 = Engine.getRandomNumber(0, maxRandomValue);
+        int num1 = Engine.generateNumber();
+        int num2 = Engine.generateNumber();
         char operation = operations[Engine.getRandomNumber(0, operations.length)];
 
         String question = num1 + " " + operation + " " + num2;
@@ -34,7 +32,8 @@ public class Calc {
             default -> "0";
         };
 
-        return new Pair(question, answer);
+        Pair task = new Pair(question, answer);
+        return task;
     }
 }
 

@@ -13,7 +13,7 @@ public class Engine {
 
         for (int i = 0; i < ROUNDS_NUMBER; i++) {
             String question = task[i].getQuestion();
-            String correctAnswer = task[i].getQuestion();
+            String correctAnswer = task[i].getAnswer();
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
@@ -32,6 +32,11 @@ public class Engine {
 
     public static int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
+    }
+
+    public static int generateNumber() {
+        final int num = 20;
+        return getRandomNumber(0, num);
     }
 
     public static int getRoundsNumber() {

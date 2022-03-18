@@ -4,9 +4,8 @@ import hexlet.code.Engine;
 import hexlet.code.Pair;
 
 public class Even {
-
-    static final String DESCRIPTION = "Answer 'yes' if number even otherwise answer 'no'.";
     public static final String NAME = "Even";
+    static final String DESCRIPTION = "Answer 'yes' if number even otherwise answer 'no'.";
 
     public static void startGame() {
         Pair[] task = new Pair[Engine.getRoundsNumber()];
@@ -19,12 +18,12 @@ public class Even {
     }
 
     private static Pair getQuestionAndAnswer() {
-        final int maxRandomValue = 15;
-        int number = Engine.getRandomNumber(0, maxRandomValue);
+        int number = Engine.generateNumber();
 
         String question = Integer.toString(number);
         String answer = (number % 2 == 0) ? "yes" : "no";
 
-        return new Pair(question, answer);
+        Pair task = new Pair(question, answer);
+        return task;
     }
 }

@@ -1,15 +1,15 @@
 package hexlet.code;
 
-public class Pair {
+public final class Pair {
     private final String question;
     private final String answer;
 
-    public Pair (String questionData, String answerData) {
+    public Pair(String questionData, String answerData) {
         this.question = questionData;
         this.answer = answerData;
     }
 
-    public String getQuestion(){
+    public String getQuestion() {
         return question;
     }
 
