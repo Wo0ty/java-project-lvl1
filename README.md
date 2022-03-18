@@ -8,3 +8,6 @@
 
 ### Демонстрация игры "Калькулятор"
 [![asciicast](https://asciinema.org/a/Tqc2MoRwjoxusD2xmVx5AftCd.svg)](https://asciinema.org/a/Tqc2MoRwjoxusD2xmVx5AftCd)
+
+### Демонстрация игры "НОД"
+[![asciicast](https://asciinema.org/a/jtN0p4AOas3CPm05qHQKLic0c.svg)](https://asciinema.org/a/jtN0p4AOas3CPm05qHQKLic0c)

@@ -2,12 +2,13 @@ package hexlet.code;
 
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
+import hexlet.code.games.Gcd;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        String[] gameNames = {"Exit", Cli.NAME, Even.NAME, Calc.NAME};
+        String[] gameNames = {"Exit", Cli.NAME, Even.NAME, Calc.NAME, Gcd.NAME};
         int countGames = gameNames.length;
 
         for (int i = 1; i < countGames; i++) {
@@ -28,6 +29,9 @@ public class App {
                 break;
             case Calc.NAME:
                 Calc.startGame();
+                break;
+            case Gcd.NAME:
+                Gcd.startGame();
                 break;
             default:
                 break;
