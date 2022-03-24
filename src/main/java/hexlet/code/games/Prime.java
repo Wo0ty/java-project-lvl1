@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Pair;
+import hexlet.code.Utils;
 
 public class Prime {
     public static final String NAME = "Prime";
@@ -22,7 +23,8 @@ public class Prime {
     }
 
     private static Pair getQuestionAndAnswer() {
-        int number = Engine.generateNumber();
+        final int maxNumber = 20;
+        int number = Utils.getRandomNumberUpTo(maxNumber);
 
         String question = Integer.toString(number);
         String answer = isPrime(number) ? YES_ANSWER : NO_ANSWER;

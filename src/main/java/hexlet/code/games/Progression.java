@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Pair;
+import hexlet.code.Utils;
 
 public class Progression {
     public static final String NAME = "Progression";
@@ -23,11 +24,11 @@ public class Progression {
     }
 
     private static Pair getQuestionAndAnswer() {
-
-        int numberCount = Engine.getRandomNumber(MIN_NUMBERS_COUNT, MAX_NUMBERS_COUNT);
-        int step = Engine.generateNumber() + 1;
-        int firstNumber = Engine.generateNumber();
-        int indexToHide = Engine.getRandomNumber(0, numberCount - 1);
+        final int maxNumber = 20;
+        int numberCount = MIN_NUMBERS_COUNT + Utils.getRandomNumberUpTo(MAX_NUMBERS_COUNT - MAX_NUMBERS_COUNT);
+        int step = Utils.getRandomNumberUpTo(maxNumber) + 1;
+        int firstNumber = Utils.getRandomNumberUpTo(maxNumber);
+        int indexToHide = Utils.getRandomNumberUpTo(numberCount - 1);
 
         String[] numbers = new String[numberCount];
 

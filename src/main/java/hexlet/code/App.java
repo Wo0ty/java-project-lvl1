@@ -42,7 +42,7 @@ public class App {
                 Prime.startGame();
                 break;
             default:
-                break;
+                System.exit(0);
         }
     }
 }

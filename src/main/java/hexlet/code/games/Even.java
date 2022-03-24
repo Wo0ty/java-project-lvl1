@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Pair;
+import hexlet.code.Utils;
 
 public class Even {
     public static final String NAME = "Even";
@@ -18,7 +19,8 @@ public class Even {
     }
 
     private static Pair getQuestionAndAnswer() {
-        int number = Engine.generateNumber();
+        final int maxNumber = 20;
+        int number = Utils.getRandomNumberUpTo(maxNumber);
 
         String question = Integer.toString(number);
         String answer = (number % 2 == 0) ? "yes" : "no";

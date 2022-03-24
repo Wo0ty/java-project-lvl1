@@ -30,15 +30,6 @@ public class Engine {
         System.out.println("Congratulations, " + playerName + "!");
     }
 
-    public static int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
-    }
-
-    public static int generateNumber() {
-        final int num = 20;
-        return getRandomNumber(0, num);
-    }
-
     public static int getRoundsNumber() {
         return ROUNDS_NUMBER;
     }

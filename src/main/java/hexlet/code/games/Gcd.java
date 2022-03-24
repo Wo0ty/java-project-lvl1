@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Pair;
+import hexlet.code.Utils;
 
 public class Gcd {
     public static final String NAME = "GCD";
@@ -18,8 +19,9 @@ public class Gcd {
     }
 
     private static Pair getQuestionAndAnswer() {
-        int num1 = Engine.generateNumber() + 1;
-        int num2 = Engine.generateNumber() + 1;
+        final int maxNumber = 20;
+        int num1 = Utils.getRandomNumberUpTo(maxNumber) + 1;
+        int num2 = Utils.getRandomNumberUpTo(maxNumber) + 1;
         String question = num1 + " " + num2;
 
         while (num1 != 0 && num2 != 0) {

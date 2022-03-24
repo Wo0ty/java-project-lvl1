@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Pair;
+import hexlet.code.Utils;
 
 public class Calc {
     public static final String NAME = "Calc";
@@ -19,10 +20,11 @@ public class Calc {
 
     private static Pair getQuestionAndAnswer() {
         char[] operations = {'+', '-', '*'};
+        final int maxNumber = 20;
 
-        int num1 = Engine.generateNumber();
-        int num2 = Engine.generateNumber();
-        char operation = operations[Engine.getRandomNumber(0, operations.length)];
+        int num1 = Utils.getRandomNumberUpTo(maxNumber);
+        int num2 = Utils.getRandomNumberUpTo(maxNumber);
+        char operation = operations[Utils.getRandomNumberUpTo(operations.length)];
 
         String question = num1 + " " + operation + " " + num2;
         String answer = switch (operation) {
