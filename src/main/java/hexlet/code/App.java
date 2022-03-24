@@ -4,12 +4,13 @@ import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        String[] gameNames = {"Exit", "Greeting", "Even", "calculator", "GCD", "Progression"};
+        String[] gameNames = {"Exit", "Greeting", "Even", "Calculator", "GCD", "Progression", "Prime"};
         int countGames = gameNames.length;
 
         for (int i = 1; i < countGames; i++) {
@@ -22,10 +23,10 @@ public class App {
         int selectedGame = input.nextInt();
 
         switch (gameNames[selectedGame]) {
-            case "Greeting":
+            case Cli.NAME:
                 Cli.askName();
                 break;
-            case "Even":
+            case Even.NAME:
                 Even.startGame();
                 break;
             case Calc.NAME:
@@ -36,6 +37,9 @@ public class App {
                 break;
             case Progression.NAME:
                 Progression.startGame();
+                break;
+            case Prime.NAME:
+                Prime.startGame();
                 break;
             default:
                 break;

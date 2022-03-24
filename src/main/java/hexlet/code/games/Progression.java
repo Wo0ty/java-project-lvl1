@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Pair;
-import java.util.Arrays;
 
 public class Progression {
     public static final String NAME = "Progression";
