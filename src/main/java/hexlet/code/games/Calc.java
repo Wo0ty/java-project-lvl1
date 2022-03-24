@@ -5,7 +5,7 @@ import hexlet.code.Pair;
 import hexlet.code.Utils;
 
 public class Calc {
-    public static final String NAME = "Calc";
+    public static final String NAME = "Calculator";
     static final String DESCRIPTION = "What is the result of the expression?";
 
     public static void startGame() {
