@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        String[] gameNames = {"Exit", "Greeting", "Even", "Calculator", "GCD", "Progression", "Prime"};
+        String[] gameNames = {"Exit", Cli.NAME, Even.NAME, Calc.NAME, Gcd.NAME, Progression.NAME, Prime.NAME};
         int countGames = gameNames.length;
 
         for (int i = 1; i < countGames; i++) {
