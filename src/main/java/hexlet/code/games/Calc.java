@@ -6,36 +6,37 @@ import hexlet.code.Utils;
 
 public class Calc {
     public static final String NAME = "Calculator";
-    static final String DESCRIPTION = "What is the result of the expression?";
+    public static final String DESCRIPTION = "What is the result of the expression?";
+
+    private static final String[] OPERATIONS = {"+", "-", "*"};
 
     public static void startGame() {
-        Pair[] task = new Pair[Utils.ROUNDS_NUMBER];
+        Pair[] tasks = new Pair[Utils.ROUNDS_NUMBER];
 
-        for (int i = 0; i < task.length; i++) {
-            task[i] = getQuestionAndAnswer();
+        for (int i = 0; i < tasks.length; i++) {
+            int num1 = Utils.getDefaultRandomNumber();
+            int num2 = Utils.getDefaultRandomNumber();
+
+            String operation = OPERATIONS[Utils.getRandomNumberUpTo(OPERATIONS.length)];
+            String question = num1 + " " + operation + " " + num2;
+            String answer = Integer.toString(calculate(num1, num2, operation));
+
+            tasks[i] = new Pair(question, answer);
         }
 
-        Engine.start(task, DESCRIPTION);
+        Engine.start(tasks, DESCRIPTION);
     }
 
-    private static Pair getQuestionAndAnswer() {
-        char[] operations = {'+', '-', '*'};
-        final int maxNumber = 20;
+    public static int calculate(int num1, int num2, String operation) {
+        if (operation.equals("+")) {
+            return num1 + num2;
+        } else if (operation.equals("-")) {
+            return num1 - num2;
+        } else if (operation.equals("*")) {
+            return num1 * num2;
+        }
 
-        int num1 = Utils.getRandomNumber();
-        int num2 = Utils.getRandomNumber();
-        char operation = operations[Utils.getRandomNumberUpTo(operations.length)];
-
-        String question = num1 + " " + operation + " " + num2;
-        String answer = switch (operation) {
-            case '-' -> Integer.toString(num1 - num2);
-            case '+' -> Integer.toString(num1 + num2);
-            case '*' -> Integer.toString(num1 * num2);
-            default -> "0";
-        };
-
-        Pair task = new Pair(question, answer);
-        return task;
+        return 0;
     }
 }
 

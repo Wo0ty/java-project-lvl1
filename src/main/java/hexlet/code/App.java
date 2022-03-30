@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Cli.greet();
+        Cli.sayHello();
 
         System.out.println("Please enter the game number and press Enter.");
         String[] gameNames = {"Exit", Cli.NAME, Even.NAME, Calc.NAME, Gcd.NAME, Progression.NAME, Prime.NAME};
@@ -25,7 +25,7 @@ public class App {
 
         switch (gameNames[selectedGame]) {
             case Cli.NAME:
-                Cli.greet();
+                Cli.sayHello();
                 break;
             case Even.NAME:
                 Even.startGame();

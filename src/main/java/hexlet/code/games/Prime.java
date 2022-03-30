@@ -6,31 +6,21 @@ import hexlet.code.Utils;
 
 public class Prime {
     public static final String NAME = "Prime";
-
     private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    private static final String YES_ANSWER = "yes";
-    private static final String NO_ANSWER = "no";
-
     public static void startGame() {
-        Pair[] task = new Pair[Utils.ROUNDS_NUMBER];
+        Pair[] tasks = new Pair[Utils.ROUNDS_NUMBER];
 
-        for (int i = 0; i < task.length; i++) {
-            task[i] = getQuestionAndAnswer();
+        for (int i = 0; i < tasks.length; i++) {
+            int number = Utils.getDefaultRandomNumber();
+
+            String question = Integer.toString(number);
+            String answer = isPrime(number) ? "yes" : "no";
+
+            tasks[i] = new Pair(question, answer);
         }
 
-        Engine.start(task, DESCRIPTION);
-    }
-
-    private static Pair getQuestionAndAnswer() {
-        final int maxNumber = 20;
-        int number = Utils.getRandomNumberUpTo(maxNumber);
-
-        String question = Integer.toString(number);
-        String answer = isPrime(number) ? YES_ANSWER : NO_ANSWER;
-
-        Pair task = new Pair(question, answer);
-        return task;
+        Engine.start(tasks, DESCRIPTION);
     }
 
     private static boolean isPrime(int n) {

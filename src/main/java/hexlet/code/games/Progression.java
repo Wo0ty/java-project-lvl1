@@ -14,33 +14,27 @@ public class Progression {
     private static final String HIDDEN_ELEMENT_SIGN = "..";
 
     public static void startGame() {
-        Pair[] task = new Pair[Utils.ROUNDS_NUMBER];
+        Pair[] tasks = new Pair[Utils.ROUNDS_NUMBER];
 
-        for (int i = 0; i < task.length; i++) {
-            task[i] = getQuestionAndAnswer();
+        for (int i = 0; i < tasks.length; i++) {
+            int numberCount = Utils.getRandomNumberInRange(MIN_NUMBERS_COUNT, MAX_NUMBERS_COUNT);
+            int step = Utils.getDefaultRandomNumber() + 1;
+            int firstNumber = Utils.getDefaultRandomNumber();
+            int indexToHide = Utils.getRandomNumberUpTo(numberCount - 1);
+
+            String[] numbers = new String[numberCount];
+
+            for (int j = 0; j < numbers.length; j++) {
+                numbers[j] = Integer.toString(firstNumber + step * j);
+            }
+
+            String answer = numbers[indexToHide];
+            numbers[indexToHide] = HIDDEN_ELEMENT_SIGN;
+            String question = String.join(" ", numbers);
+
+            tasks[i] = new Pair(question, answer);
         }
 
-        Engine.start(task, DESCRIPTION);
-    }
-
-    private static Pair getQuestionAndAnswer() {
-        final int maxNumber = 20;
-        int numberCount = MIN_NUMBERS_COUNT + Utils.getRandomNumberUpTo(MAX_NUMBERS_COUNT - MAX_NUMBERS_COUNT);
-        int step = Utils.getRandomNumberUpTo(maxNumber) + 1;
-        int firstNumber = Utils.getRandomNumberUpTo(maxNumber);
-        int indexToHide = Utils.getRandomNumberUpTo(numberCount - 1);
-
-        String[] numbers = new String[numberCount];
-
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = Integer.toString(firstNumber + step * i);
-        }
-
-        String answer = numbers[indexToHide];
-        numbers[indexToHide] = HIDDEN_ELEMENT_SIGN;
-        String question = String.join(" ", numbers);
-
-        Pair task = new Pair(question, answer);
-        return task;
+        Engine.start(tasks, DESCRIPTION);
     }
 }

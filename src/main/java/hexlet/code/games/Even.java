@@ -9,23 +9,17 @@ public class Even {
     static final String DESCRIPTION = "Answer 'yes' if number even otherwise answer 'no'.";
 
     public static void startGame() {
-        Pair[] task = new Pair[Utils.ROUNDS_NUMBER];
+        Pair[] tasks = new Pair[Utils.ROUNDS_NUMBER];
 
-        for (int i = 0; i < task.length; i++) {
-            task[i] = getQuestionAndAnswer();
+        for (int i = 0; i < tasks.length; i++) {
+            int number = Utils.getDefaultRandomNumber();
+
+            String question = Integer.toString(number);
+            String answer = (number % 2 == 0) ? "yes" : "no";
+
+            tasks[i] = new Pair(question, answer);
         }
 
-        Engine.start(task, DESCRIPTION);
-    }
-
-    private static Pair getQuestionAndAnswer() {
-        final int maxNumber = 20;
-        int number = Utils.getRandomNumber();
-
-        String question = Integer.toString(number);
-        String answer = (number % 2 == 0) ? "yes" : "no";
-
-        Pair task = new Pair(question, answer);
-        return task;
+        Engine.start(tasks, DESCRIPTION);
     }
 }
