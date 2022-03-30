@@ -9,11 +9,12 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        Cli.greet();
+
         System.out.println("Please enter the game number and press Enter.");
         String[] gameNames = {"Exit", Cli.NAME, Even.NAME, Calc.NAME, Gcd.NAME, Progression.NAME, Prime.NAME};
-        int countGames = gameNames.length;
 
-        for (int i = 1; i < countGames; i++) {
+        for (int i = 1; i < gameNames.length; i++) {
             System.out.println(i + " - " + gameNames[i]);
         }
         System.out.println("0 - " + gameNames[0]);
@@ -24,7 +25,7 @@ public class App {
 
         switch (gameNames[selectedGame]) {
             case Cli.NAME:
-                Cli.askName();
+                Cli.greet();
                 break;
             case Even.NAME:
                 Even.startGame();

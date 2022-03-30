@@ -13,7 +13,7 @@ public class Prime {
     private static final String NO_ANSWER = "no";
 
     public static void startGame() {
-        Pair[] task = new Pair[Engine.getRoundsNumber()];
+        Pair[] task = new Pair[Utils.ROUNDS_NUMBER];
 
         for (int i = 0; i < task.length; i++) {
             task[i] = getQuestionAndAnswer();

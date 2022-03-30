@@ -9,7 +9,7 @@ public class Calc {
     static final String DESCRIPTION = "What is the result of the expression?";
 
     public static void startGame() {
-        Pair[] task = new Pair[Engine.getRoundsNumber()];
+        Pair[] task = new Pair[Utils.ROUNDS_NUMBER];
 
         for (int i = 0; i < task.length; i++) {
             task[i] = getQuestionAndAnswer();
@@ -22,8 +22,8 @@ public class Calc {
         char[] operations = {'+', '-', '*'};
         final int maxNumber = 20;
 
-        int num1 = Utils.getRandomNumberUpTo(maxNumber);
-        int num2 = Utils.getRandomNumberUpTo(maxNumber);
+        int num1 = Utils.getRandomNumber();
+        int num2 = Utils.getRandomNumber();
         char operation = operations[Utils.getRandomNumberUpTo(operations.length)];
 
         String question = num1 + " " + operation + " " + num2;

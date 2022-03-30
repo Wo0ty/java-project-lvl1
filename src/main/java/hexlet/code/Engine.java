@@ -3,17 +3,15 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int ROUNDS_NUMBER = 3;
-
-    public static void start(Pair[] task, String gameDescription) {
-        String playerName = Cli.askName();
+    public static void start(Pair[] tasks, String gameDescription) {
+        String playerName = askName();
         System.out.println(gameDescription);
 
         Scanner input = new Scanner(System.in);
 
-        for (int i = 0; i < ROUNDS_NUMBER; i++) {
-            String question = task[i].getQuestion();
-            String correctAnswer = task[i].getAnswer();
+        for (Pair task: tasks) {
+            String question = task.getQuestion();
+            String correctAnswer = task.getAnswer();
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
@@ -27,10 +25,18 @@ public class Engine {
                 return;
             }
         }
+
         System.out.println("Congratulations, " + playerName + "!");
     }
 
-    public static int getRoundsNumber() {
-        return ROUNDS_NUMBER;
+    private static String askName() {
+        System.out.println("\nWelcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+
+        Scanner scan = new Scanner(System.in);
+        String userName = scan.nextLine();
+        System.out.println("Hello, " + userName + "!");
+
+        return userName;
     }
 }

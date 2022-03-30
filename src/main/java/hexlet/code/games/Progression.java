@@ -14,7 +14,7 @@ public class Progression {
     private static final String HIDDEN_ELEMENT_SIGN = "..";
 
     public static void startGame() {
-        Pair[] task = new Pair[Engine.getRoundsNumber()];
+        Pair[] task = new Pair[Utils.ROUNDS_NUMBER];
 
         for (int i = 0; i < task.length; i++) {
             task[i] = getQuestionAndAnswer();

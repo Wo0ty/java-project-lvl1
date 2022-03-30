@@ -9,7 +9,7 @@ public class Even {
     static final String DESCRIPTION = "Answer 'yes' if number even otherwise answer 'no'.";
 
     public static void startGame() {
-        Pair[] task = new Pair[Engine.getRoundsNumber()];
+        Pair[] task = new Pair[Utils.ROUNDS_NUMBER];
 
         for (int i = 0; i < task.length; i++) {
             task[i] = getQuestionAndAnswer();
@@ -20,7 +20,7 @@ public class Even {
 
     private static Pair getQuestionAndAnswer() {
         final int maxNumber = 20;
-        int number = Utils.getRandomNumberUpTo(maxNumber);
+        int number = Utils.getRandomNumber();
 
         String question = Integer.toString(number);
         String answer = (number % 2 == 0) ? "yes" : "no";
