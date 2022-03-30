@@ -1,13 +1,10 @@
 package hexlet.code;
 
-import java.util.Scanner;
-
 public class Engine {
     public static void start(Pair[] tasks, String gameDescription) {
-        String playerName = askName();
         System.out.println(gameDescription);
 
-        Scanner input = new Scanner(System.in);
+        String playerName = askName();
 
         for (Pair task: tasks) {
             String question = task.getQuestion();
@@ -15,7 +12,7 @@ public class Engine {
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
-            String answer = input.next();
+            String answer = Utils.getDataFromUser();
 
             if (answer.equals(correctAnswer)) {
                 System.out.println("Correct!");
@@ -33,8 +30,7 @@ public class Engine {
         System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
 
-        Scanner scan = new Scanner(System.in);
-        String userName = scan.nextLine();
+        String userName = Utils.getDataFromUser();
         System.out.println("Hello, " + userName + "!");
 
         return userName;
