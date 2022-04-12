@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Pair;
+import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
 public class Calc {
@@ -11,7 +11,7 @@ public class Calc {
     private static final String[] OPERATIONS = {"+", "-", "*"};
 
     public static void startGame() {
-        Pair[] tasks = new Pair[Utils.ROUNDS_NUMBER];
+        RoundData[] tasks = new RoundData[Engine.ROUNDS_NUMBER];
 
         for (int i = 0; i < tasks.length; i++) {
             int num1 = Utils.getDefaultRandomNumber();
@@ -21,7 +21,7 @@ public class Calc {
             String question = num1 + " " + operation + " " + num2;
             String answer = Integer.toString(calculate(num1, num2, operation));
 
-            tasks[i] = new Pair(question, answer);
+            tasks[i] = new RoundData(question, answer);
         }
 
         Engine.start(tasks, DESCRIPTION);

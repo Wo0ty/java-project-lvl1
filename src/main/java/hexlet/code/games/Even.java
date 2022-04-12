@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Pair;
+import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
 public class Even {
@@ -9,7 +9,7 @@ public class Even {
     static final String DESCRIPTION = "Answer 'yes' if number even otherwise answer 'no'.";
 
     public static void startGame() {
-        Pair[] tasks = new Pair[Utils.ROUNDS_NUMBER];
+        RoundData[] tasks = new RoundData[Engine.ROUNDS_NUMBER];
 
         for (int i = 0; i < tasks.length; i++) {
             int number = Utils.getDefaultRandomNumber();
@@ -17,7 +17,7 @@ public class Even {
             String question = Integer.toString(number);
             String answer = (number % 2 == 0) ? "yes" : "no";
 
-            tasks[i] = new Pair(question, answer);
+            tasks[i] = new RoundData(question, answer);
         }
 
         Engine.start(tasks, DESCRIPTION);

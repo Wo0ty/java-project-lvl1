@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Pair;
+import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
 public class Progression {
@@ -14,7 +14,7 @@ public class Progression {
     private static final String HIDDEN_ELEMENT_SIGN = "..";
 
     public static void startGame() {
-        Pair[] tasks = new Pair[Utils.ROUNDS_NUMBER];
+        RoundData[] tasks = new RoundData[Engine.ROUNDS_NUMBER];
 
         for (int i = 0; i < tasks.length; i++) {
             int numberCount = Utils.getRandomNumberInRange(MIN_NUMBERS_COUNT, MAX_NUMBERS_COUNT);
@@ -32,7 +32,7 @@ public class Progression {
             numbers[indexToHide] = HIDDEN_ELEMENT_SIGN;
             String question = String.join(" ", numbers);
 
-            tasks[i] = new Pair(question, answer);
+            tasks[i] = new RoundData(question, answer);
         }
 
         Engine.start(tasks, DESCRIPTION);

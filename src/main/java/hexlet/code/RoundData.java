@@ -1,10 +1,10 @@
 package hexlet.code;
 
-public final class Pair {
+public final class RoundData {
     private final String question;
     private final String answer;
 
-    public Pair(String questionData, String answerData) {
+    public RoundData(String questionData, String answerData) {
         this.question = questionData;
         this.answer = answerData;
     }
